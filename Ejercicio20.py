@@ -1,32 +1,37 @@
-import os
+# Ejercicio 20
 
-cantidad_de_euros = int(input('Ingresa el valor de cantidad de euros: '))
-monedas_de_1 = cantidad_de_euros
-billetes_de_500 = (monedas_de_1-monedas_de_1 % 500)//500
-monedas_de_1 = monedas_de_1 % 500
-billetes_de_200 = (monedas_de_1-monedas_de_1 % 200)//200
-monedas_de_1 = monedas_de_1 % 200
-billetes_de_100 = (monedas_de_1-monedas_de_1 % 100)//100
-monedas_de_1 = monedas_de_1 % 100
-billetes_de_50 = (monedas_de_1-monedas_de_1 % 50)//50
-monedas_de_1 = monedas_de_1 % 50
-billetes_de_20 = (monedas_de_1-monedas_de_1 % 20)//20
-monedas_de_1 = monedas_de_1 % 20
-billetes_de_10 = (monedas_de_1-monedas_de_1 % 10)//10
-monedas_de_1 = monedas_de_1 % 10
-billetes_de_5 = (monedas_de_1-monedas_de_1 % 5)//5
-monedas_de_1 = monedas_de_1 % 5
-monedas_de_2 = (monedas_de_1-monedas_de_1 % 2)//2
-monedas_de_1 = monedas_de_1 % 2
+valor = 0
+cien = 0
+cincuenta = 0
+veinte = 0
+diez = 0
+cinco = 0
+mil = 0
 
-print('Valor de billetes de 10: ' + repr(billetes_de_10))
-print('Valor de billetes de 100: ' + repr(billetes_de_100))
-print('Valor de billetes de 20: ' + repr(billetes_de_20))
-print('Valor de billetes de 200: ' + repr(billetes_de_200))
-print('Valor de billetes de 5: ' + repr(billetes_de_5))
-print('Valor de billetes de 50: ' + repr(billetes_de_50))
-print('Valor de billetes de 500: ' + repr(billetes_de_500))
-print('Valor de monedas de 1: ' + repr(monedas_de_1))
-print('Valor de monedas de 2: ' + repr(monedas_de_2))
-print()
-os.system('pause')
+valor = int(input("Ingresa la cantidad de dínero (Mínimo 1.000): "))
+if valor >= 1000:
+    cien = int(valor / 100000)
+    reserva = valor % 100000
+
+    cincuenta = int(reserva / 50000)
+    reserva = reserva % 50000
+
+    veinte = int(reserva / 20000)
+    reserva = reserva % 20000
+
+    diez = int(reserva / 10000)
+    reserva = reserva % 10000
+
+    cinco = int(reserva / 5000)
+    reserva = reserva % 5000
+
+    dosmil = int(reserva / 2000)
+    reserva = reserva % 2000
+
+    mil = int(reserva / 1000)
+    reserva = reserva % 1000
+
+    print("La cantidad mínima de cada billete son: ")
+    print(str(cien) + " de 100.000" + "\n" + str(cincuenta) + " de 50.000" + "\n" + str(veinte) + " de 20.000" + "\n" + str(diez) + " de 10.000" + "\n" + str(cinco) + " de 5.000" + "\n" + str(dosmil) + " de 2.000" + "\n" + str(mil) + " de 1.000")
+else:
+    print("Digitó un número fuera del rango")
